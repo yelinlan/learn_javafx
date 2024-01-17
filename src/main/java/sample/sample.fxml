@@ -1,0 +1,15 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.shape.Circle?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <AnchorPane>
+        <children>
+            <Button fx:id="button" onAction="#onAction" text="获取最新页面" layoutX="100" layoutY="100"/>
+            <Circle fx:id="circle"  centerX="250" centerY="250" radius="100" stroke="black" fill="white"/>
+            <TextField fx:id="textField" onDragOver="#onDragOver" onDragDropped="#onDragDropped" layoutX="200" layoutY="100" text="主人~，这里可以放文件哦~"/>
+        </children>
+    </AnchorPane>
+</GridPane>

@@ -1,0 +1,13 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:controller="sample.Controller2"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <AnchorPane>
+        <children>
+            <Button fx:id="button" onAction="#onAction" text="返回主页" layoutX="100" layoutY="100"/>
+            <Label fx:id="label" text="主人~，暂时没有找到可用的资源，喵~"/>
+        </children>
+    </AnchorPane>
+</GridPane>
