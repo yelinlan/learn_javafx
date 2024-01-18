@@ -18,6 +18,8 @@ public class Controller {
 	public TextField textField;
 	@FXML
 	public Button button;
+	@FXML
+	public Button button2;
 
 	public void onDragOver(DragEvent dragEvent) {
 		dragEvent.acceptTransferModes(TransferMode.ANY);
@@ -42,9 +44,9 @@ public class Controller {
 		//上下左右移动
 		scene.setOnKeyPressed(p -> {
 			if (p.getCode().equals(KeyCode.DOWN)) {
-				circle.setCenterY(circle.getCenterY() - 5);
-			} else if (p.getCode().equals(KeyCode.UP)) {
 				circle.setCenterY(circle.getCenterY() + 5);
+			} else if (p.getCode().equals(KeyCode.UP)) {
+				circle.setCenterY(circle.getCenterY() - 5);
 			} else if (p.getCode().equals(KeyCode.LEFT)) {
 				circle.setCenterX(circle.getCenterX() - 5);
 			} else if (p.getCode().equals(KeyCode.RIGHT)) {
@@ -55,5 +57,13 @@ public class Controller {
 
 	public void onAction(ActionEvent actionEvent) {
 		CommonCache.stage.setScene(CommonCache.sceneMap.get("2"));
+	}
+
+	public void onAction2(ActionEvent actionEvent) {
+		CommonCache.stage.setScene(CommonCache.sceneMap.get("3"));
+	}
+
+	public void onAction3(ActionEvent actionEvent) {
+		CommonCache.stage.setScene(CommonCache.sceneMap.get("4"));
 	}
 }

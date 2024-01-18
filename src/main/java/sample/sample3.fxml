@@ -1,0 +1,14 @@
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:controller="sample.Controller3"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <AnchorPane>
+        <children>
+            <Button fx:id="button2" onAction="#onAction2" text="保存图片" layoutX="0" layoutY="0"/>
+            <Button fx:id="button" onAction="#onAction" text="返回主页" layoutX="100" layoutY="0"/>
+            <Canvas fx:id="canvas" onMousePressed="#onMousePressed" onMouseDragged="#onMouseDragged" layoutX="0" layoutY="30" width="400" height="400"/>
+        </children>
+    </AnchorPane>
+</GridPane>
