@@ -16,6 +16,5 @@ public class Controller2 {
 		//切换场景
 		CommonCache.stage.setScene(CommonCache.sceneMap.get("1"));
 
-
 	}
 }

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -16,26 +17,31 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		System.out.println("================start================");
+		//1.scene
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("sample.fxml"));
 		Parent root = fxmlLoader.load();
 		Scene scene = new Scene(root, 500, 500);
-
 		Controller controller = fxmlLoader.getController();
 		controller.circleRadiusBind(scene);
 		controller.move(scene);
-
-
+		//2.scene
 		FXMLLoader fxmlLoader2 = new FXMLLoader();
 		fxmlLoader2.setLocation(getClass().getResource("sample2.fxml"));
 		Parent root2 = fxmlLoader2.load();
 		Scene scene2 = new Scene(root2, 500, 500);
+		//4.canvas
+		FXMLLoader fxmlLoader3 = new FXMLLoader();
+		fxmlLoader3.setLocation(getClass().getResource("sample3.fxml"));
+		Parent root3 = fxmlLoader3.load();
+		Scene scene3= new Scene(root3, 500, 500);
 
-
+		//3.scene放入缓存
 		CommonCache.stage = primaryStage;
-		CommonCache.sceneMap.put("1",scene);
-		CommonCache.sceneMap.put("2",scene2);
-
+		CommonCache.sceneMap.put("1", scene);
+		CommonCache.sceneMap.put("2", scene2);
+		CommonCache.sceneMap.put("3", scene3);
+		//启动
 		shutDownWindow(primaryStage);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("知乎热点");

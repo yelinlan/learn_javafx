@@ -18,6 +18,8 @@ public class Controller {
 	public TextField textField;
 	@FXML
 	public Button button;
+	@FXML
+	public Button button2;
 
 	public void onDragOver(DragEvent dragEvent) {
 		dragEvent.acceptTransferModes(TransferMode.ANY);
@@ -55,5 +57,9 @@ public class Controller {
 
 	public void onAction(ActionEvent actionEvent) {
 		CommonCache.stage.setScene(CommonCache.sceneMap.get("2"));
+	}
+
+	public void onAction2(ActionEvent actionEvent) {
+		CommonCache.stage.setScene(CommonCache.sceneMap.get("3"));
 	}
 }

@@ -8,6 +8,7 @@
     <AnchorPane>
         <children>
             <Button fx:id="button" onAction="#onAction" text="获取最新页面" layoutX="100" layoutY="100"/>
+            <Button fx:id="button2" onAction="#onAction2" text="画板" layoutX="0" layoutY="100"/>
             <Circle fx:id="circle"  centerX="250" centerY="250" radius="100" stroke="black" fill="white"/>
             <TextField fx:id="textField" onDragOver="#onDragOver" onDragDropped="#onDragDropped" layoutX="200" layoutY="100" text="主人~，这里可以放文件哦~"/>
         </children>
