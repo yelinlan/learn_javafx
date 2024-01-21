@@ -20,32 +20,27 @@ public class Main extends Application {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("sample.fxml"));
 		Parent root = fxmlLoader.load();
-		Scene scene = new Scene(root, 500, 500);
+		Scene scene = new Scene(root);
 		Controller controller = fxmlLoader.getController();
 		controller.circleRadiusBind(scene);
 		controller.move(scene);
-		//2.scene
+		//4.canvas
 		FXMLLoader fxmlLoader2 = new FXMLLoader();
 		fxmlLoader2.setLocation(getClass().getResource("sample2.fxml"));
 		Parent root2 = fxmlLoader2.load();
-		Scene scene2 = new Scene(root2, 500, 500);
-		//4.canvas
-		FXMLLoader fxmlLoader3 = new FXMLLoader();
-		fxmlLoader3.setLocation(getClass().getResource("sample3.fxml"));
-		Parent root3 = fxmlLoader3.load();
-		Scene scene3 = new Scene(root3, 500, 500);
+		Scene scene2 = new Scene(root2);
+		Controller2 controller2 = fxmlLoader2.getController();
 
 		//3.scene放入缓存
 		CommonCache.stage = primaryStage;
 		CommonCache.sceneMap.put("1", scene);
 		CommonCache.sceneMap.put("2", scene2);
-		CommonCache.sceneMap.put("3", scene3);
 
 
 		//启动
 		shutDownWindow(primaryStage);
-		primaryStage.setScene(scene);
-		primaryStage.setTitle("知乎热点");
+		primaryStage.setScene(scene2);
+		primaryStage.setTitle("大风车");
 		primaryStage.getIcons().add(new Image("images/zhihu.jpg"));
 		primaryStage.show();
 	}
@@ -59,6 +54,7 @@ public class Main extends Application {
 			alert.setHeaderText(null);
 			alert.setContentText("喵？主人要走了吗？");
 			if (alert.showAndWait().get() == ButtonType.OK) {
+				Controller2.running=false;
 				Platform.exit();
 			}
 		});

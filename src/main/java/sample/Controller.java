@@ -60,7 +60,7 @@ public class Controller {
 	}
 
 	public void onAction2(ActionEvent actionEvent) {
-		CommonCache.stage.setScene(CommonCache.sceneMap.get("3"));
+		CommonCache.stage.setScene(CommonCache.sceneMap.get("2"));
 	}
 
 	public void onAction3(ActionEvent actionEvent) {
