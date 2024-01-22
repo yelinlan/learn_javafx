@@ -1,13 +1,51 @@
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
-<GridPane fx:controller="sample.Controller2"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <AnchorPane>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="750.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller2">
+    <AnchorPane layoutX="50.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="150.0">
         <children>
-            <Button fx:id="button" onAction="#onAction" text="返回主页" layoutX="100" layoutY="100"/>
-            <Label fx:id="label" text="主人~，暂时没有找到可用的资源，喵~"/>
+            <ListView fx:id="radiusList" prefHeight="100.0" prefWidth="150.0"/>
         </children>
     </AnchorPane>
-</GridPane>
+    <AnchorPane layoutX="250.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="150.0">
+        <children>
+            <ListView fx:id="leafList" prefHeight="100.0" prefWidth="150.0"/>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="450.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="150.0">
+        <children>
+            <ListView fx:id="colorList" prefHeight="100.0" prefWidth="150.0"/>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="245.0" layoutY="125.0" prefHeight="23.0" prefWidth="159.0">
+        <children>
+            <TextField fx:id="radiusField" layoutX="110.0" prefHeight="20.0" prefWidth="50.0"/>
+            <Label alignment="CENTER_RIGHT" layoutX="63.0" layoutY="2.0" prefHeight="20.0" prefWidth="40.0" text="半径:"/>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="430.0" layoutY="125.0" prefHeight="20.0" prefWidth="90.0">
+        <children>
+            <TextField fx:id="leafsField" layoutX="90.0" prefHeight="20.0" prefWidth="50.0"/>
+            <Label alignment="CENTER_RIGHT" layoutX="50.0" layoutY="2.0" prefHeight="20.0" prefWidth="40.0"
+                   text="叶片数:"/>
+        </children>
+    </AnchorPane>
+    <AnchorPane id="canvas_st" layoutX="45.0" layoutY="169.0" stylesheets="@canvas_st.css">
+        <children>
+            <Canvas fx:id="canvas" height="561.0" width="561.0"/>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="45.0" layoutY="124.0" prefHeight="34.0" prefWidth="179.0">
+        <children>
+            <Button fx:id="start" layoutX="-6.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#clickStart"
+                    text="停止"/>
+            <Button fx:id="add" layoutX="34.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#addClick"
+                    text="加速"/>
+            <Button fx:id="minus" layoutX="74.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#minusClick"
+                    text="减速"/>
+        </children>
+    </AnchorPane>
+</AnchorPane>
