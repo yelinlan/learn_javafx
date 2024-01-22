@@ -22,10 +22,12 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Controller2 {
 
 	public static final String DEFAULT = "-fx-border-color: null;";
+	public static final String WARNING = "-fx-border-color: red;";
 	private static double[] a;
 	private static double[] b;
 	private static double theta = 0;
@@ -128,7 +130,7 @@ public class Controller2 {
 				throw new RuntimeException();
 			}
 		} catch (Exception n) {
-			leafsField.setStyle("-fx-border-color: red;");
+			leafsField.setStyle(WARNING);
 		}
 	}
 
@@ -144,7 +146,7 @@ public class Controller2 {
 				radiusField.setStyle(DEFAULT);
 			}
 		} catch (Exception m) {
-			radiusField.setStyle("-fx-border-color: red;");
+			radiusField.setStyle(WARNING);
 		}
 	}
 
@@ -208,7 +210,7 @@ public class Controller2 {
 	@FXML
 	void addClick(MouseEvent event) {
 		if (speed - 1 == 0) {
-			add.setStyle("-fx-border-color: red;");
+			add.setStyle(WARNING);
 		} else {
 			add.setStyle(DEFAULT);
 			speed -= 1;
