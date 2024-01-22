@@ -1,10 +1,12 @@
 package sample;
 
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
@@ -28,7 +30,6 @@ public class Controller2 {
 	private static double[] b;
 	private static double theta = 0;
 	public static boolean running = true;
-	private static final Map<String, Color> colorMap = new TreeMap<>();
 	private static final Map<String, Integer> radiusMap = new TreeMap<>();
 	private static final Map<String, Integer> leafMap = new TreeMap<>();
 	public Button save;
@@ -43,27 +44,11 @@ public class Controller2 {
 
 
 	static {
-		colorMap.put("黑色", Color.BLACK);
-		colorMap.put("蓝色", Color.BLUE);
-		colorMap.put("蓝绿色", Color.CYAN);
-		colorMap.put("深灰色", Color.DARKGRAY);
-		colorMap.put("灰色", Color.GRAY);
-		colorMap.put("绿色", Color.GREEN);
-		colorMap.put("浅灰色", Color.LIGHTGRAY);
-		colorMap.put("紫红色", Color.MAGENTA);
-		colorMap.put("橙色", Color.ORANGE);
-		colorMap.put("粉红色", Color.PINK);
-		colorMap.put("红色", Color.RED);
-		colorMap.put("白色", Color.WHITE);
-		colorMap.put("黄色", Color.YELLOW);
 		for (int i = 1; i < 20; i++) {
 			radiusMap.put(String.valueOf(i * 50), i * 50);
 			leafMap.put(String.valueOf(i + 2), i + 2);
 		}
 	}
-
-	@FXML
-	private ListView<String> colorList;
 
 	@FXML
 	private ListView<String> leafList;
@@ -84,19 +69,17 @@ public class Controller2 {
 	private Button start;
 
 	@FXML
-	private Button stop;
-
-	@FXML
 	private Button add;
 
 	@FXML
 	private Button minus;
 
+	@FXML
+	public ColorPicker colorPick;
+
 	public void initialize() {
 		g = canvas.getGraphicsContext2D();
 		fans(3, 200, canvas.getHeight() / 2, canvas.getWidth() / 2);
-		colorList.getItems().addAll(colorMap.keySet());
-		addColorListener(colorList);
 		leafList.getItems().addAll(leafMap.keySet().stream().sorted(Comparator.comparingInt(Integer::parseInt))
 				.collect(Collectors.toList()));
 		addLeafListener(leafList);
@@ -111,14 +94,6 @@ public class Controller2 {
 	private void paint() {
 		g.setFill(color);
 		g.fillPolygon(a, b, leafs * 3);
-	}
-
-	private void addColorListener(ListView<String> colorList) {
-		colorList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-			if (newValue != null) {
-				color = colorMap.get(newValue);
-			}
-		});
 	}
 
 	private void addLeafListener(ListView<String> colorList) {
@@ -264,5 +239,9 @@ public class Controller2 {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void pickColor(ActionEvent actionEvent) {
+		color = colorPick.getValue();
 	}
 }
