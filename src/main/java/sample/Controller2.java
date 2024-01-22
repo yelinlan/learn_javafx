@@ -1,14 +1,21 @@
 package sample;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -24,6 +31,7 @@ public class Controller2 {
 	private static final Map<String, Color> colorMap = new TreeMap<>();
 	private static final Map<String, Integer> radiusMap = new TreeMap<>();
 	private static final Map<String, Integer> leafMap = new TreeMap<>();
+	public Button save;
 	Color color = Color.color(1, 0, 0);
 	private static int speed = 20;
 	int leafs;
@@ -242,4 +250,19 @@ public class Controller2 {
 		System.out.println(speed);
 	}
 
+	public void save(MouseEvent mouseEvent) {
+		WritableImage writableImage = canvas.snapshot(null, null);
+		BufferedImage bufferedImage = SwingFXUtils.fromFXImage(writableImage, null);
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("保存canvas图片");
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", ".png"));
+		File file = fileChooser.showSaveDialog(canvas.getScene().getWindow());
+		if (file != null) {
+			try {
+				ImageIO.write(bufferedImage, "PNG", file);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
