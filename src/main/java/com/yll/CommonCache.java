@@ -1,4 +1,4 @@
-package sample;
+package com.yll;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;

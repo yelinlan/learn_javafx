@@ -1,5 +1,6 @@
-package sample;
+package com.yll.controller;
 
+import com.yll.CommonCache;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -22,9 +24,8 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-public class Controller2 {
+public class FansController {
 
 	public static final String DEFAULT = "-fx-border-color: null;";
 	public static final String WARNING = "-fx-border-color: red;";

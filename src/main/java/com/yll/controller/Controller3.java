@@ -1,5 +1,6 @@
-package sample;
+package com.yll.controller;
 
+import com.yll.CommonCache;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

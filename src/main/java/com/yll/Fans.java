@@ -1,4 +1,4 @@
-package sample;
+package com.yll;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class Fans extends JFrame implements Runnable, ListSelectionListener {
+public class Fans extends JFrame implements Runnable, ListSelectionListener {
 	private JList radiusList, leafList, colorList;
 	private JLabel radiusBar, leafsBar;
 	private JTextField radiusField, leafsField;
@@ -176,13 +176,11 @@ class Fans extends JFrame implements Runnable, ListSelectionListener {
 			}
 		} catch (Exception e) {}
 	}
-}
-
-public class Test {
 
 	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);//设置窗口的外观和感觉为Java默认
 		Thread fans = new Thread(new Fans(3, 200, 300, 300));         //线程
 		fans.start();
 	}
+
 }

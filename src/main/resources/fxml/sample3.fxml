@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.canvas.Canvas?>
-<GridPane fx:controller="sample.Controller3"
+<GridPane fx:controller="com.yll.controller.Controller3"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <AnchorPane>
         <children>

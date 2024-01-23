@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane prefHeight="750.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller2">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yll.controller.FansController">
     <AnchorPane layoutX="50.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="80.0">
         <ListView fx:id="radiusList" prefHeight="100.0" prefWidth="80.0"/>
     </AnchorPane>
@@ -27,7 +27,7 @@
         <TextField fx:id="leafsField" layoutX="50.0" prefHeight="20.0" prefWidth="50.0"/>
         <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="40.0" text="叶片数:"/>
     </AnchorPane>
-    <AnchorPane id="canvas_st" layoutX="45.0" layoutY="169.0" stylesheets="@canvas_st.css">
+    <AnchorPane id="canvas_st" layoutX="45.0" layoutY="169.0" stylesheets="@../css/canvas_st.css">
         <Canvas fx:id="canvas" height="561.0" width="561.0"/>
     </AnchorPane>
     <AnchorPane layoutX="259.0" layoutY="48.0" prefHeight="20.0" prefWidth="160.0">

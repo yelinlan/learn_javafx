@@ -1,5 +1,7 @@
-package sample;
+package com.yll;
 
+import com.yll.controller.Controller;
+import com.yll.controller.FansController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -11,14 +13,14 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
-public class Main extends Application {
+public class FansApplication extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		System.out.println("================start================");
 		//1.scene
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("sample.fxml"));
+		fxmlLoader.setLocation(getClass().getClassLoader().getResource("fxml/sample.fxml"));
 		Parent root = fxmlLoader.load();
 		Scene scene = new Scene(root);
 		Controller controller = fxmlLoader.getController();
@@ -26,10 +28,10 @@ public class Main extends Application {
 		controller.move(scene);
 		//4.canvas
 		FXMLLoader fxmlLoader2 = new FXMLLoader();
-		fxmlLoader2.setLocation(getClass().getResource("sample2.fxml"));
+		fxmlLoader2.setLocation(getClass().getClassLoader().getResource("fxml/sample2.fxml"));
 		Parent root2 = fxmlLoader2.load();
 		Scene scene2 = new Scene(root2);
-		Controller2 controller2 = fxmlLoader2.getController();
+		FansController controller2 = fxmlLoader2.getController();
 
 		//3.scene放入缓存
 		CommonCache.stage = primaryStage;
@@ -41,7 +43,7 @@ public class Main extends Application {
 		shutDownWindow(primaryStage);
 		primaryStage.setScene(scene2);
 		primaryStage.setTitle("大风车");
-		primaryStage.getIcons().add(new Image("images/zhihu.jpg"));
+		primaryStage.getIcons().add(new Image("images/fans.png"));
 		primaryStage.show();
 	}
 
@@ -54,7 +56,7 @@ public class Main extends Application {
 			alert.setHeaderText(null);
 			alert.setContentText("喵？主人要走了吗？");
 			if (alert.showAndWait().get() == ButtonType.OK) {
-				Controller2.running=false;
+				FansController.running=false;
 				Platform.exit();
 			}
 		});
