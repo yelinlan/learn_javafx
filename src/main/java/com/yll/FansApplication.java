@@ -43,7 +43,7 @@ public class FansApplication extends Application {
 		shutDownWindow(primaryStage);
 		primaryStage.setScene(scene2);
 		primaryStage.setTitle("大风车");
-		primaryStage.getIcons().add(new Image("images/fans.png"));
+//		primaryStage.getIcons().add(new Image("images/fans.png"));
 		primaryStage.show();
 	}
 
